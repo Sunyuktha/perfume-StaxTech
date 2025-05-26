@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elixer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images-homepg/logo.png" alt="Logo">
+            <span>Elixir</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./purchase.html">Purchase</a></li>
+                <li><a href="./login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="container my-5">
+        <h2 class="text-center text-dark">here we go pick your loved one</h2>
+        <ul class="nav nav-tabs justify-content-center" id="plantTabs">
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#dior">DIOR Perfume</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#chanel">CHANEL Perfume</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#lelabo">LE LABO Perfume</a></li>
+        </ul>
+        <div class="tab-content mt-4">
+            <div id="dior" class="tab-pane fade show active">
+                <div class="row" id="dior-list"></div>
+            </div>
+            <div id="chanel" class="tab-pane fade">
+                <div class="row" id="chanel-list"></div>
+            </div>
+            <div id="lelabo" class="tab-pane fade">
+                <div class="row" id="lelabo-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Perfume Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body d-flex">
+                    <img id="modal-img" src="" alt="Perfume Image" class="img-fluid w-50">
+                    <div class="ms-3">
+                        <h3 id="modal-title"></h3>
+                        <p id="modal-description"></p>
+                        <h4 class="text-success">Price: <span id="modal-price"></span></h4>
+                        <button class="btn btn-primary">Add to Cart</button>
+                         <button class="btn btn-primary">Wishlist</button>
+                        <button class="btn btn-success">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer >
+        <p>&copy; 2025 Elixir. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script2.js"></script>
+</body>
+</html>

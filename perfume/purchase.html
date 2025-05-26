@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart & Wishlist</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./purchase.css">
+  <script defer src="./script3.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./images-homepg/logo.png" alt="Logo" />
+      <span>Elixer</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./product.html">Products</a></li>
+        <li><a href="./purchase.html">Purchase</a></li>
+        <li><a href="./login.html">Login/Signup</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container my-5">
+
+    <!-- CART SECTION -->
+    <h2 class="text-center text-black">Your Cart</h2>
+    <div id="cart-items" class="row"></div>
+    <div class="text-end my-4">
+      <h4 class="text-black">Total: ₹<span id="cart-total">0.00</span></h4>
+      <button class="btn btn-dark" onclick="checkout()">Checkout</button>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- WISHLIST SECTION -->
+    <h2 class="text-center text-black">Your Wishlist</h2>
+    <div id="wishlist-items" class="row"></div>
+
+    <hr class="my-5" />
+
+    <!-- BUY NOW SECTION -->
+    <div id="buy-now-section" class="my-5">
+      <h3 class="text-success">Buy Now</h3>
+      <div id="buy-now-details"></div>
+      <div id="payment-form" class="mt-4" style="display: none;">
+        <h4>Payment Form</h4>
+        <form onsubmit="event.preventDefault(); alert('Payment Successful!');">
+          <input type="text" placeholder="Card Number" class="form-control mb-2" required>
+          <input type="text" placeholder="Expiry Date (MM/YY)" class="form-control mb-2" required>
+          <input type="text" placeholder="CVV" class="form-control mb-2" required>
+          <button type="submit" class="btn btn-dark">Pay Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Elixer. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // WISHLIST LOAD FUNCTION
+    function loadWishlist() {
+      const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      const wishlistContainer = document.getElementById("wishlist-items");
+      wishlistContainer.innerHTML = "";
+
+      wishlist.forEach((item, index) => {
+        const itemCard = document.createElement("div");
+        itemCard.classList.add("cart-item", "row", "mb-3");
+        itemCard.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="cart-item-info">
+              <h5>${item.name}</h5>
+              <p class="text-success">${item.price}</p>
+          </div>
+          <div class="cart-item-controls">
+              <button class="btn btn-danger" onclick="removeFromWishlist(${index})">Remove</button>
+          </div>
+        `;
+        wishlistContainer.appendChild(itemCard);
+      });
+    }
+
+    function removeFromWishlist(index) {
+      const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      wishlist.splice(index, 1);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      loadWishlist();
+    }
+
+    // BUY NOW DISPLAY
+    document.addEventListener("DOMContentLoaded", function () {
+      const item = JSON.parse(localStorage.getItem("buyNowItem"));
+      const container = document.getElementById("buy-now-details");
+      const paymentForm = document.getElementById("payment-form");
+
+      if (item) {
+        container.innerHTML = `
+          <div class="card p-3">
+            <h5>${item.name}</h5>
+            <p>${item.description}</p>
+            <p class="text-success">${item.price}</p>
+            <button class="btn btn-primary" onclick="document.getElementById('payment-form').style.display='block'">Proceed to Payment</button>
+          </div>
+        `;
+      } else {
+        document.getElementById("buy-now-section").style.display = "none";
+      }
+
+      loadWishlist();
+    });
+
+    // CART CHECKOUT PLACEHOLDER
+    function checkout() {
+      alert("Checkout for cart is not implemented yet.");
+    }
+  </script>
+</body>
+</html>

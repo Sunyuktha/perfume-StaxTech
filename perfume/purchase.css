@@ -1,0 +1,93 @@
+body {
+      background-color: #ecf2b9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #222;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(56, 54, 54);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.cart-item-controls {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+/* For small screens like phones */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* For larger screens like laptops */
+@media (max-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}

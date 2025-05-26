@@ -1,0 +1,85 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #ecf2b9;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #222;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+
+
+.card {
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+ img {
+    width: 150px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+/* For small screens like phones */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* For larger screens like laptops */
+@media (max-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}

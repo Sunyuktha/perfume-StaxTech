@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Signup - Elixir Perfumes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-container {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: #f2f6e5;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    body{
+      background-color: #ecf2b9;
+    }
+    .auth-tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+
+    .auth-tabs div {
+      padding: 0.5rem 1rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    .auth-tabs .active {
+      border-bottom: 2px solid #333;
+      font-weight: bold;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .auth-form button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .auth-form button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="./images-homepg/logo.png" alt="Logo">
+      <span>Elixir</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./product.html">Products</a></li>
+        <li><a href="./purchase.html">Purchase</a></li>
+        <li><a href="./login.html" class="active">Login/Signup</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="auth-container">
+    <div class="auth-tabs">
+      <div id="login-tab" class="active" onclick="switchForm('login')">Login</div>
+      <div id="signup-tab" onclick="switchForm('signup')">Signup</div>
+    </div>
+
+    <form id="login-form" class="auth-form active">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <form id="signup-form" class="auth-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Elixir Perfumes. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchForm(type) {
+      document.getElementById('login-form').classList.remove('active');
+      document.getElementById('signup-form').classList.remove('active');
+      document.getElementById('login-tab').classList.remove('active');
+      document.getElementById('signup-tab').classList.remove('active');
+
+      if (type === 'login') {
+        document.getElementById('login-form').classList.add('active');
+        document.getElementById('login-tab').classList.add('active');
+      } else {
+        document.getElementById('signup-form').classList.add('active');
+        document.getElementById('signup-tab').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
